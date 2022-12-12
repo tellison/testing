@@ -1,7 +1,7 @@
 = Adoptium API Cookbook
 
-The Adoptium API is a powerful tool for providing data about the
-https://adoptium.net/temurin/[Temurin Java] builds. It provides stable URLs that can be embedded into webpages, or used in scripts to automate the querying and downloading of information, and forms the basis of the Adoptium website, scripts, and other project infrastructure. The same API is available for end users to use in their own scripts.
+The Adoptium API is a powerful tool providing data about the Adoptium
+https://adoptium.net/temurin/[Temurin Java] builds. It provides stable URLs that can be embedded into webpages, or used in scripts to automate the querying and downloading of information. The API forms the basis of the Adoptium website, scripts, and other project infrastructure, and is available for end users to use in their own scripts.
 
 This document shows some simple and popular uses of the Adoptium API to achieve specific goals. See the
 https://api.adoptium.net/q/swagger-ui/[full API documentation]
@@ -9,7 +9,7 @@ to build more complex queries, including access to nightly builds, debug builds,
 
 == Example One: Explore available releases
 
-A simple query can return the list of Java versions available from Adoptium, including regular and long term supported (LTS) versions.
+The first example is a simple API query that returns the list of Java versions available from Adoptium, including the regular and long term supported (LTS) versions. The API doesn't take any arguments, and returns a JSON formatted list of versions.
 
 [source,html]
 https://api.adoptium.net/v3/info/available_releases
@@ -39,7 +39,7 @@ the result will be something like this
 }
 ----
 
-This can be consumed directly in your application, or used in script. It may be convenient to extract part of the data from an Adoptium API call, and this example shows how to do that using
+This can be consumed directly in your application, or used in script. It may be convenient to extract part of the data from the JSON results of an Adoptium API call, and this example shows how to do that using
 https://stedolan.github.io/jq/[the `jq` tool] that is broadly available.
 
 For example, to get the most recent LTS version available you can use:
@@ -60,8 +60,13 @@ You can download the latest long-term supported (LTS) Linux x64 JDK version 17 u
 https://api.adoptium.net/v3/binary/latest/17/ga/linux/x64/jdk/hotspot/normal/eclipse
 ----
 
+Here's an example of using the API to download the latest Java 17 installer for Windows on 64-bit Intel CPUs.
+
+[source,html]
+https://api.adoptium.net/v3/installer/latest/17/ga/windows/x64/jre/hotspot/normal/eclipse?project=jdk
+
 ****
-Looking at this URL you can see it follows a general structure with replaceable variables:
+Looking at these URLs you can see they follows a general structure with replaceable variables in the path:
 `https://api.adoptium.net/v3/binary/latest/{feature_version}/ga/{os}/{arch}/{image_type}/hotspot/normal/eclipse`
 
 so downloading for other Java API versions and platforms is simply a case of replacing the variables with the required values
@@ -75,6 +80,7 @@ image_type:: product type, choose one of "jdk" or "jre".
 [NOTE]
 Not all combinations of values are valid, so if there is no Temurin build available for the combination you specify the API will return a `HTTP/1.1 404 Not Found` response.
 ****
+
 
 == Example Three: Scripting a download using the Adoptium API
 
