@@ -51,16 +51,16 @@ $ curl -s https://api.adoptium.net/v3/info/available_releases | jq '.most_recent
 ----
 
 [#example-two]
-== Example Two: Downloading the latest JDK
+== Example Two: Downloading the latest JDK or JRE
 
-You can download the latest long-term supported (LTS) Linux x64 JDK version 17 using the following stable URL
+You can download the latest long-term supported (LTS) Linux x64 JDK version 17 JDK using the following stable URL
 
 [source, html]
 ----
 https://api.adoptium.net/v3/binary/latest/17/ga/linux/x64/jdk/hotspot/normal/eclipse
 ----
 
-Here's an example of using the API to download the latest Java 17 installer for Windows on 64-bit Intel CPUs.
+Here's an example of using the API to download the latest Java 17 JRE installer for Windows on 64-bit Intel CPUs.
 
 [source,html]
 https://api.adoptium.net/v3/installer/latest/17/ga/windows/x64/jre/hotspot/normal/eclipse?project=jdk
