@@ -1,15 +1,59 @@
 = Adoptium API Cookbook
 
-The Adoptium API is a powerful tool for downloading the Temurin Java builds. It provides stable URLs that can be embedded into webpages, or used in scripts to automate the querying and downloading of information.
+The Adoptium API is a powerful tool for providing data about the
+https://adoptium.net/temurin/[Temurin Java] builds. It provides stable URLs that can be embedded into webpages, or used in scripts to automate the querying and downloading of information, and forms the basis of the Adoptium website, scripts, and other project infrastructure. The same API is available for end users to use in their own scripts.
 
 This document shows some simple and popular uses of the Adoptium API to achieve specific goals. See the
 https://api.adoptium.net/q/swagger-ui/[full API documentation]
 to build more complex queries, including access to nightly builds, debug builds, and sources.
 
-[#example-one]
-== Example One: Download the latest JDK
+== Example One: Explore available releases
 
-To download the latest long-term supported (LTS) Linux x64 JDK version 17 you can use the following stable URL
+A simple query can return the list of Java versions available from Adoptium, including regular and long term supported (LTS) versions.
+
+[source,html]
+https://api.adoptium.net/v3/info/available_releases
+
+the result will be something like this
+
+[code,json]
+----
+{
+    "available_lts_releases": [
+        8,
+        11,
+        17
+    ],
+    "available_releases": [
+        8,
+        11,
+        16,
+        17,
+        18,
+        19
+    ],
+    "most_recent_feature_release": 19,
+    "most_recent_feature_version": 20,
+    "most_recent_lts": 17,
+    "tip_version": 21
+}
+----
+
+This can be consumed directly in your application, or used in script. It may be convenient to extract part of the data from an Adoptium API call, and this example shows how to do that using
+https://stedolan.github.io/jq/[the `jq` tool] that is broadly available.
+
+For example, to get the most recent LTS version available you can use:
+
+[source, bash]
+----
+$ curl -s https://api.adoptium.net/v3/info/available_releases | jq '.most_recent_lts'
+17
+----
+
+[#example-two]
+== Example Two: Downloading the latest JDK
+
+You can download the latest long-term supported (LTS) Linux x64 JDK version 17 using the following stable URL
 
 [source, html]
 ----
@@ -20,7 +64,7 @@ https://api.adoptium.net/v3/binary/latest/17/ga/linux/x64/jdk/hotspot/normal/ecl
 Looking at this URL you can see it follows a general structure with replaceable variables:
 `https://api.adoptium.net/v3/binary/latest/{feature_version}/ga/{os}/{arch}/{image_type}/hotspot/normal/eclipse`
 
-so downloading for other Java API versions and platforms is simply replacing the variables with the following options
+so downloading for other Java API versions and platforms is simply a case of replacing the variables with the required values
 
 [unordered.stack]
 feature_version:: the Java API version, choose one of "8", "11", "17", "19" and so on.
@@ -29,12 +73,12 @@ arch:: the CPU architecture, one of "x64", "x86", "x32", "ppc64", "ppc64le", "s3
 image_type:: product type, choose one of "jdk" or "jre".
  
 [NOTE]
-Not all combinations of vales are valid, so if there is no Temurin build available for the combination you specify the API will return a `HTTP/1.1 404 Not Found` response.
+Not all combinations of values are valid, so if there is no Temurin build available for the combination you specify the API will return a `HTTP/1.1 404 Not Found` response.
 ****
 
-== Example Two: Scripting the download
+== Example Three: Scripting a download using the Adoptium API
 
-You can download Temurin binaries and check they were received successfully using a shell script, as folllows:
+Rather than use a URL in the browser you can download Temurin binaries and check they were received successfully using a shell script, as follows:
 
 [source, bash]
 ----
@@ -52,43 +96,12 @@ curl -Ls "${FETCH_URL}.sha256.txt" | sha256sum -c --status
 echo "Downloaded successfully as ${FILENAME}"
 ----
 
-Again, the download URL can be adapted for different Java versions etc. as shown in <<example-one,Example One>>.
+Again, the download URL can be adapted for different Java versions etc. as shown in <<example-two,Example Two>>.
 
-== Example Three: Explore available releases
 
-The API can tell you which releases are available for Temurin, which are long term supported builds, and the latest tip development build, as follows:
+== Example Three: More complex queries
 
-[source, html]
-https://api.adoptium.net/v3/info/available_releases
-
-which provides a JSON formatted response such as this:
-
-[source, json]
-----
-{
-  "available_lts_releases": [
-    8,
-    11,
-    17
-  ],
-  "available_releases": [
-    8,
-    11,
-    16,
-    17,
-    18,
-    19
-  ],
-  "most_recent_feature_release": 19,
-  "most_recent_feature_version": 20,
-  "most_recent_lts": 17,
-  "tip_version": 21
-}
-----
-
-== Example Four: Find all Windows builds for Java 19
-
-The API can be supplemented to filter the details response by Java version, platform, and other conditions. For example, to find all builds of Java 19 or later for Windows 32-bit architecture, you can use:
+The API can be supplemented to filter the details response by Java version, platform, and other conditions. For example, the following API call will find all builds of Java 19 or later for Windows 32-bit architecture:
 
 [source,html]
 https://api.adoptium.net/v3/assets/version/%5B19%2C%5D?os=windows&architecture=x32
@@ -99,26 +112,12 @@ https://www.urldecoder.org/[URL encoding] of "[19," which
 https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html[describes the version range] "19 onwards".
 
 The full set of filters and possible argument values is available in
-https://api.adoptium.net/q/swagger-ui/[the API documentation].
+https://api.adoptium.net/q/swagger-ui/[the API documentation]
+and can be used to specify exactly the information you require.
 
-== Example Five: Extract JSON information from the API results
+== More examples
 
-It may be convenient to extract part of the data from an Adoptium API call, and this example shows how to do that using
-https://stedolan.github.io/jq/[the `jq` tool] that is broadly available.
+Looking for more API examples? Drop us a note on the
+[https://adoptium.net/slack/](Adoptium Slack API channel)
+and we will help with the use of the API.
 
-Get the most recent LTS version available:
-
-[source, bash]
-----
-$ curl -s https://api.adoptium.net/v3/info/available_releases | jq '.most_recent_lts'
-17
-----
-
-
-
-
-
-
-== Example Five: Detailed build information for a range of builds
-
-https://api.adoptium.net/v3/assets/version/%5B20%2C%29
