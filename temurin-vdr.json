@@ -57,5 +57,12 @@
         ]
       }
     }
+  ],
+  "signers": [
+    {
+      "algorithm": "RS256",
+      "keyId": "3B04D753C9050D9A5D343F39843C48A565F8F04B",
+      "value": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+    }
   ]
 }
