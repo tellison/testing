@@ -1,82 +1,76 @@
 {
-  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
-  "bomFormat": "CycloneDX",
-  "specVersion": "1.5",
-  "serialnumber": "urn:uuid:c4ff2de4-839f-4014-adf0-a1589dd7d24d",
-  "version": 1,
-  "metadata": {
-    "timestamp": "2023-07-31T12:42:00",
-    "supplier": "Eclipse Adoptium",
-    "url": "https://www.adoptium.net",
-    "licenses": [
+   "$schema":"http://cyclonedx.org/schema/bom-1.5.schema.json",
+   "bomFormat":"CycloneDX",
+   "specVersion":"1.5",
+   "serialNumber":"urn:uuid:c4ff2de4-839f-4014-adf0-a1589dd7d24d",
+   "version":1,
+   "metadata":{
+      "timestamp":"2023-07-31T12:42:00",
+      "supplier":{
+         "name":"Eclipse Adoptium",
+         "url":[
+            "https://www.adoptium.net"
+         ]
+      }
+   },
+   "vulnerabilities":[
       {
-        "expression": "EPL-2.0"
+         "id":"CVE-2023-25193",
+         "source":{
+            "name":"NVD",
+            "url":"https://nvd.nist.gov/vuln/detail/CVE-2023-25193"
+         },
+         "properties":[
+            {
+               "name":"component",
+               "value":"client-libs/2d"
+            }
+         ],
+         "published":"2023-02-04T20:15:08.027",
+         "updated":"2023-07-25T15:15:13.163",
+         "description":"hb-ot-layout-gsubgpos.hh in HarfBuzz through 6.0.0 allows attackers to trigger O(n^2) growth via consecutive marks during the process of looking back for base glyphs when attaching marks.",
+         "recommendation":"Upgrade to the latest version of Eclipse Temurin.",
+         "ratings":[
+            {
+               "source":{
+                  "url":"https://nvd.nist.gov/vuln/detail/CVE-2023-25193",
+                  "name":"NVD"
+               },
+               "score":7.5,
+               "severity":"high",
+               "method":"CVSSv3",
+               "vector":"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            {
+               "source":{
+                  "url":"https://openjdk.org/groups/vulnerability/advisories",
+                  "name":"OJVG"
+               },
+               "score":3.7,
+               "severity":"low",
+               "method":"CVSSv3",
+               "vector":"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L"
+            }
+         ],
+         "affects":[
+            {
+               "ref":"???????",
+               "versions":[
+                  {
+                     "range":"<8u333"
+                  }
+               ]
+            }
+         ]
       }
-    ]
-  },
-  "vulnerabilities": [
-    {
-      "id": "CVE-2023-25193",
-      "source": {
-        "name": "NVD",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2023-25193"
-      },
-      "properties": [
-        {
-          "name": "component",
-          "value": "client-libs/2d"
-        }
-      ],
-      "published": "2023-02-04T20:15:08.027",
-      "updated": "2023-07-25T15:15:13.163",
-      "description": "hb-ot-layout-gsubgpos.hh in HarfBuzz through 6.0.0 allows attackers to trigger O(n^2) growth via consecutive marks during the process of looking back for base glyphs when attaching marks.",
-      "recommendation": "Upgrade to the latest version of Eclipse Temurin.",
-      "ratings": [
-        {
-          "source": {
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-25193",
-            "name": "NVD"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
-          "exploitabilityScore": 3.9,
-          "impactScore": 3.6
-        },
-        {
-          "source": {
-            "url": "https://openjdk.org/groups/vulnerability/advisories",
-            "name": "OJVG"
-          },
-          "score": 3.7,
-          "severity": "low",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
-          "exploitabilityScore": 2.2,
-          "impactScore": 1.4
-        }
-      ],
-      "affects": {
-        "ref": "???????",
-        "versions": [
-          {
-            "range": [
-              "<8u333",
-              "<11.0.15.1",
-              "<17.0.3.1",
-              "<20.0.1.1"
-            ]
-          }
-        ]
-      }
-    }
-  ],
-  "signers": [
-    {
-      "algorithm": "RS256",
-      "keyId": "3B04D753C9050D9A5D343F39843C48A565F8F04B",
-      "value": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
-    }
-  ]
+   ],
+   "signature":{
+      "signers":[
+         {
+            "algorithm":"RS256",
+            "keyId":"3B04D753C9050D9A5D343F39843C48A565F8F04B",
+            "value":"dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+         }
+      ]
+   }
 }
