@@ -13,3 +13,6 @@ https://www.jsonschemavalidator.net/
 Formatter
 https://jsonformatter.org/json-pretty-print
 
+
+JSON signing spec
+https://datatracker.ietf.org/doc/html/rfc7515
