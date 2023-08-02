@@ -1,0 +1,15 @@
+Guide
+https://cyclonedx.org/guides/sbom/OWASP_CycloneDX-SBOM-Guide-en.pdf
+
+Spec
+https://cyclonedx.org/docs/1.5/json
+
+Schema
+https://cyclonedx.org/schema/bom-1.5.schema.json
+
+Validator
+https://www.jsonschemavalidator.net/
+
+Formatter
+https://jsonformatter.org/json-pretty-print
+
