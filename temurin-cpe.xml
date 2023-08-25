@@ -10,13 +10,46 @@
     <cpe-23:cpe23-item name="cpe:2.3:a:eclipse:temurin:20.0.2:*:*:*:*:*:*:*"/>
   </cpe-item>
 
+  <!--  ECLIPSE TEMURIN 17 RELEASES -->
   <cpe-item name="cpe:/a:eclipse:temurin:17.0.8">
-    <title xml:lang="en-US">Eclipse Temurin 17.0.8</title>
+    <title xml:lang="en-US">Eclipse Temurin 17.0.8+7</title>
     <references>
       <reference href="https://adoptium.net/temurin/releases/">VERSION</reference>
       <reference href="https://www.eclipse.org/">VENDOR</reference>
     </references>
     <cpe-23:cpe23-item name="cpe:2.3:a:eclipse:temurin:17.0.8:*:*:*:*:*:*:*"/>
+  </cpe-item>
+  <cpe-item name="cpe:/a:eclipse:temurin:17.0.7">
+    <title xml:lang="en-US">Eclipse Temurin 17.0.7+7</title>
+    <references>
+      <reference href="https://adoptium.net/temurin/releases/">VERSION</reference>
+      <reference href="https://www.eclipse.org/">VENDOR</reference>
+    </references>
+    <cpe-23:cpe23-item name="cpe:2.3:a:eclipse:temurin:17.0.7:*:*:*:*:*:*:*"/>
+  </cpe-item>
+  <cpe-item name="cpe:/a:eclipse:temurin:17.0.6">
+    <title xml:lang="en-US">Eclipse Temurin 17.0.6+10</title>
+    <references>
+      <reference href="https://adoptium.net/temurin/releases/">VERSION</reference>
+      <reference href="https://www.eclipse.org/">VENDOR</reference>
+    </references>
+    <cpe-23:cpe23-item name="cpe:2.3:a:eclipse:temurin:17.0.6:*:*:*:*:*:*:*"/>
+  </cpe-item>
+  <cpe-item name="cpe:/a:eclipse:temurin:17.0.5">
+    <title xml:lang="en-US">Eclipse Temurin 17.0.5+8</title>
+    <references>
+      <reference href="https://adoptium.net/temurin/releases/">VERSION</reference>
+      <reference href="https://www.eclipse.org/">VENDOR</reference>
+    </references>
+    <cpe-23:cpe23-item name="cpe:2.3:a:eclipse:temurin:17.0.5:*:*:*:*:*:*:*"/>
+  </cpe-item>
+  <cpe-item name="cpe:/a:eclipse:temurin:17.0.4.1">
+    <title xml:lang="en-US">Eclipse Temurin 17.0.4.1+1</title>
+    <references>
+      <reference href="https://adoptium.net/temurin/releases/">VERSION</reference>
+      <reference href="https://www.eclipse.org/">VENDOR</reference>
+    </references>
+    <cpe-23:cpe23-item name="cpe:2.3:a:eclipse:temurin:17.0.4.1:*:*:*:*:*:*:*"/>
   </cpe-item>
 
  <cpe-item name="cpe:/a:eclipse:temurin:11.0.20">
