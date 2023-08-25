@@ -1,7 +1,7 @@
 Defined by https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf
 
 Example
-`cpe:2.3:a:eclipse:temurin:17.0.8+7:*:*:*:*:*:*:*`
+`cpe:2.3:a:eclipse:temurin:17.0.8:*:*:*:*:*:*:*`
 
 | Field | Value |
 | ----- | ----- |
@@ -9,7 +9,7 @@ Example
 | Part | a |
 | Vendor | eclipse |
 | Product | temurin |
-| Version | 17.0.8+7 |
+| Version | 17.0.8 |
 | Update | * |
 | Edition | * |
 | Langauge | * |
