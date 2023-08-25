@@ -1,4 +1,5 @@
-`cpe:2.3:a:eclipse:temurin:17.0.8:*:*:*:*:*:*:*`
+Example
+`cpe:2.3:a:eclipse:temurin:17.0.8+7:*:*:*:*:*:*:*`
 
 | Field | Value |
 | ----- | ----- |
@@ -6,7 +7,7 @@
 | Part | a |
 | Vendor | eclipse |
 | Product | temurin |
-| Version | 17.0.8 |
+| Version | 17.0.8+7 |
 | Update | * |
 | Edition | * |
 | Langauge | * |
