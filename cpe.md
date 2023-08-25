@@ -1,3 +1,5 @@
+Defined by https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf
+
 Example
 `cpe:2.3:a:eclipse:temurin:17.0.8+7:*:*:*:*:*:*:*`
 
