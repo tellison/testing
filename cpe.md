@@ -39,7 +39,7 @@ Example
 
 Dictionary definitions defined by http://csrc.nist.gov/publications/nistir/ir7697/NISTIR-7697-CPE-Dictionary.pdf
 
-```
+```xml
   <cpe-item name="cpe:/a:eclipse:temurin:17.0.8">
     <title xml:lang="en-US">Eclipse Temurin 17.0.8+7</title>
     <references>
@@ -50,3 +50,15 @@ Dictionary definitions defined by http://csrc.nist.gov/publications/nistir/ir769
     <cpe-23:cpe23-item name="cpe:2.3:a:eclipse:temurin:17.0.8:*:*:*:*:*:*:*"/>
   </cpe-item>
 ```
+
+
+Building code:
+
+Version
+
+OpenJDK version, e.g. "17.0.8.1+1"
+```
+curl -X 'GET' 'https://api.adoptium.net/v3/assets/latest/17/hotspotarchitecture=x64&image_type=jdk&os=linux&vendor=eclipse' -H 'accept: application/json' | jq '.[0].version.openjdk_version'
+```
+
+
