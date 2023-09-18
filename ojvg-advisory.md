@@ -15,6 +15,7 @@ Contents
 1. Parse OpenJDK email -> Intermediate OJVG info json file.
    - This allows for isolating announcement format changes from downstream.
    - Subscribe to announce list to be event driven?
+     - E-mail doesn't show which CVE applies to which release stream in the way that the website does.
    - Can check validity with signing key.
 2. Combine Intermediate file with Temurin info and NIST info
    - Create an adoptium/temurin/temurin-vdr.json
