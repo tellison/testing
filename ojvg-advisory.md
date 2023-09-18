@@ -8,12 +8,15 @@ Published at https://openjdk.org/groups/vulnerability/advisories
  - OpenJDK Version Stream Affected
    - Specific release in freetext header
   
-== Steps
+== Steps ==
 
-1. Scrape OpenJDK website -> Intermediate OJVG info file
-   This allows for isolating website changes from downstream
+1. Parse OpenJDK email -> Intermediate OJVG info json file.
+   - This allows for isolating announcement format changes from downstream.
+   - Subscribe to announce list to be event driven?
+   - Can check validity with signing key.
 2. Combine Intermediate file with Temurin info and NIST info
-   Create an adoptium/temurin/temurin-vdr.json
-3. Update VDR on each Temurin release, Adoptium disclosure, and each OJVG website update
+   - Create an adoptium/temurin/temurin-vdr.json
+   - Captures CVE info, scores from others and affected Temurin products.
+3. Update VDR on each Temurin release, Adoptium disclosure, and each OJVG update. 
 4. Extract a summary of the VDR to publish alongside the Temurin Release Notes.
    
